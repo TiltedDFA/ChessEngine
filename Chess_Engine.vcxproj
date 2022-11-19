@@ -134,7 +134,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)dependancies\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -143,7 +143,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="Resource_Manager.cpp" />
+    <ClCompile Include="Screen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Board.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Includes.hpp" />
+    <ClInclude Include="Piece.hpp" />
+    <ClInclude Include="Resource_Manager.hpp" />
+    <ClInclude Include="Screen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
