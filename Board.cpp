@@ -10,7 +10,6 @@ void Board::load_position_from_FEN(const std::string& fen) {
 	size_t iter = 0;
 	for (; iter < fen.size() && fen[iter] != ' '; ++iter)
 	{
-		
 		if (current_row < 1 || current_column > 9) {
 			throw std::runtime_error("Incorrect FEN");
 		}
@@ -95,7 +94,7 @@ void Board::load_position_from_FEN(const std::string& fen) {
 	}
 }
 void Board::draw_pieces(sf::RenderWindow& window) {
-	for (const auto& i : m_pieces) {
-		i->draw(window);
+	for (int i = 0; i < m_pieces.size();++i) {
+		window.draw(m_pieces[i]->get_Sprite());
 	}
 }

@@ -21,8 +21,8 @@ class Piece
 public:
 	Piece() = delete;
 	Piece(PieceType&& type, sf::Vector2i&& board_pos);
-	//returns the sprite(in order to draw)
-	const void draw(sf::RenderWindow& window)const;
+	//used to draw the sprite
+	sf::Sprite get_Sprite()const;
 	//used to set the position of the sprite
 	void set_sprite_position(const sf::Vector2f& pos);
 	//used to get the position of the sprite which will

@@ -1,8 +1,8 @@
 #include "Piece.hpp"
 Piece::Piece(PieceType&& type, sf::Vector2i&& board_pos) {
 	m_piece_type = std::move(type);
-	m_sprite.setPosition({ static_cast<float>(abs(board_pos.x - 1) * 100),
-		static_cast<float>(abs(board_pos.y - 9) * 100) });
+	m_sprite.setPosition({ static_cast<float>((board_pos.x-1) * 100),
+		static_cast<float>(abs(board_pos.y  - 8) * 100)});
 	m_sprite.setTexture(Resource_Manager::get_texture(CHESS_SPRITES_PATH));
 	switch (m_piece_type)
 	{
@@ -44,8 +44,8 @@ Piece::Piece(PieceType&& type, sf::Vector2i&& board_pos) {
 		break;
 	}
 }
-const void Piece::draw(sf::RenderWindow& window)const {
-	window.draw(m_sprite);
+sf::Sprite Piece::get_Sprite()const {
+	return m_sprite;
 }
 void Piece::set_sprite_position(const sf::Vector2f& pos) {
 	m_sprite.setPosition(pos);
