@@ -3,7 +3,7 @@
 
 int _MAIN()
 {
-    Game Game;
-    Game.Run();
+    Game game;
+    game.Run();
     return 0;
 }

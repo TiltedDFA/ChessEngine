@@ -1,7 +1,7 @@
 #include "Board.hpp"
-#include <ctype.h>
+#include <cctype>
 Board::~Board() {
-	for (auto& i : m_pieces)
+	for (const auto& i : m_pieces)
 		delete i;
 }
 void Board::load_position_from_FEN(const std::string& fen) {
@@ -76,7 +76,7 @@ void Board::load_position_from_FEN(const std::string& fen) {
 		}		
 	}
 	m_white_to_move = (fen[iter + 1] == 'w') ? true : false;
-	for (iter += 3; fen.size() && fen[iter] != ' '; ++iter) {
+	for (iter += 3; !fen.empty() && fen[iter] != ' '; ++iter) {
 		switch (fen[iter]) {
 		case 'K':
 			m_can_castle[0][0] = true;
@@ -90,11 +90,13 @@ void Board::load_position_from_FEN(const std::string& fen) {
 		case 'q':
 			m_can_castle[1][1] = true;
 			break;
+		default:
+			break; 
 		}
 	}
 }
-void Board::draw_pieces(sf::RenderWindow& window) {
-	for (int i = 0; i < m_pieces.size();++i) {
-		window.draw(m_pieces[i]->get_Sprite());
+void Board::draw_pieces(sf::RenderWindow& window)const {
+	for (const auto& i : m_pieces) {
+		window.draw(i->get_Sprite());
 	}
 }

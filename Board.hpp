@@ -7,7 +7,7 @@ public:
 	Board()=default;
 	~Board();
 	void load_position_from_FEN(const std::string& fen);
-	void draw_pieces(sf::RenderWindow& window);
+	void draw_pieces(sf::RenderWindow& window)const;
 	
 private:
 	std::vector<Piece*> m_pieces;

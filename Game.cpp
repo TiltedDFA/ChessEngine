@@ -10,7 +10,7 @@ void Game::Run() {
     bground.setFillColor(sf::Color::Cyan);
     while (m_window.isOpen())
     {
-        sf::Event event;
+        sf::Event event{};
         while (m_window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
